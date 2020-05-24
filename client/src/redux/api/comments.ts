@@ -1,15 +1,11 @@
 import { BASE_URL, BASE_PARAMS } from 'lib/constants';
 import { CommentFormData, Comment } from 'redux/interfaces';
+import { authHeaders } from './helpers';
 
 export const getComments = (postId: string): Promise<Comment[]> =>
   fetch(`${BASE_URL}/comments/?post_id=${postId}`, {
     ...BASE_PARAMS,
-    headers: {
-      ...BASE_PARAMS.headers,
-      uid: localStorage.uid,
-      client: localStorage.client,
-      'access-token': localStorage['access-token'],
-    },
+    ...authHeaders(),
   }).then((res) => res.json());
 
 export const postComment = async (
@@ -24,12 +20,7 @@ export const postComment = async (
 
   const res = await fetch(`${BASE_URL}/comments?post_id=${postId}`, {
     ...BASE_PARAMS,
-    headers: {
-      ...BASE_PARAMS.headers,
-      uid: localStorage.uid,
-      client: localStorage.client,
-      'access-token': localStorage['access-token'],
-    },
+    ...authHeaders(),
     method: 'POST',
     body,
   });

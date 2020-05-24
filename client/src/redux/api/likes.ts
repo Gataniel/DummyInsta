@@ -1,5 +1,6 @@
 import { BASE_URL, BASE_PARAMS } from 'lib/constants';
 import { Model, Like, LikeResp } from 'redux/interfaces';
+import { authHeaders } from './helpers';
 
 export const deleteLike = async (id: number): Promise<Like> => {
   const body = JSON.stringify({
@@ -8,12 +9,7 @@ export const deleteLike = async (id: number): Promise<Like> => {
 
   const res = await fetch(`${BASE_URL}/likes/${id}`, {
     ...BASE_PARAMS,
-    headers: {
-      ...BASE_PARAMS.headers,
-      uid: localStorage.uid,
-      client: localStorage.client,
-      'access-token': localStorage['access-token'],
-    },
+    ...authHeaders(),
     method: 'DELETE',
     body,
   });
@@ -32,12 +28,7 @@ export const postLike = async (
 
   const res = await fetch(`${BASE_URL}/likes`, {
     ...BASE_PARAMS,
-    headers: {
-      ...BASE_PARAMS.headers,
-      uid: localStorage.uid,
-      client: localStorage.client,
-      'access-token': localStorage['access-token'],
-    },
+    ...authHeaders(),
     method: 'POST',
     body,
   });
