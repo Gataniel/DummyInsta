@@ -1,0 +1,18 @@
+.ReactModal__Content--after-open.modal {
+  display: flex;
+
+  .modal-close {
+    top: 70px;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,20 @@
+footer.footer {
+  padding: 0.5rem;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  z-index: 30;
+
+  .content {
+    margin-bottom: 0;
+  }
+
+  .fa-instagram {
+    cursor: pointer;
+  }
+
+ #upload-button {
+   display: none;
+ }
+}

@@ -1,0 +1,11 @@
+.likes {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &__count {
+    margin-right: 15px;
+  }
+}
