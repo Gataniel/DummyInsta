@@ -1,5 +1,6 @@
 import { BASE_URL, BASE_PARAMS } from 'lib/constants';
 import { PostFormData, Post, SortedBy } from 'redux/interfaces';
+import { authHeaders } from './helpers';
 
 export const getPosts = async (
   userId: string,
@@ -12,12 +13,7 @@ export const getPosts = async (
     })}`,
     {
       ...BASE_PARAMS,
-      headers: {
-        ...BASE_PARAMS.headers,
-        uid: localStorage.uid,
-        client: localStorage.client,
-        'access-token': localStorage['access-token'],
-      },
+      ...authHeaders(),
     }
   );
   return res.json();

@@ -1,6 +1,6 @@
 import { BASE_PARAMS } from 'lib/constants';
 
-export const authHeader = () => ({
+export const authHeaders = () => ({
   headers: {
     ...BASE_PARAMS.headers,
     uid: localStorage.uid,
